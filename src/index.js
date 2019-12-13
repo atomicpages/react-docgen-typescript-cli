@@ -63,7 +63,7 @@ exports.main = (files, argv = {}) => {
 
                 if (argv.d) {
                     fs.writeFileSync(
-                        path.join(argv.d, `${path.parse(files[index]).name}.json`),
+                        path.join(argv.d, `${displayName || `file_${index}`}.json`),
                         JSON.stringify(acc[displayName], null, argv.minified ? undefined : 4)
                     );
                 }
