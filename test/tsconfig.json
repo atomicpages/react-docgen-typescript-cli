@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "downlevelIteration": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+    }
+}

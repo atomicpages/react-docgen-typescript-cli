@@ -1,0 +1,37 @@
+{
+    "methods": [],
+    "description": "",
+    "props": {
+        "height": {
+            "defaultValue": {
+                "value": 50
+            },
+            "description": "The height of the square",
+            "name": "height",
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "width": {
+            "defaultValue": {
+                "value": 50
+            },
+            "description": "The width of the square",
+            "name": "width",
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "Children to render",
+            "name": "children",
+            "required": true,
+            "type": {
+                "name": "ReactNode"
+            }
+        }
+    }
+}

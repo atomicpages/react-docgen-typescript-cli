@@ -1,0 +1,6 @@
+coverage
+out
+node_modules
+__mocks__
+__tests__
+test
