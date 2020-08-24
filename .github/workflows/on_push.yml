@@ -16,4 +16,3 @@ jobs:
               run: |
                   npm i
                   npm t
-                  npm run build
