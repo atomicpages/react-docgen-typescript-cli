@@ -11,7 +11,7 @@ npm i react-docgen-typescript @types/react react-ts-docgen typescript --save-dev
 yarn add react-docgen-typescript @types/react react-ts-docgen typescript --dev
 ```
 
-`react-docgen-typescript`, `@types/react`, and `typescript` are all **peer dependencies** of this packae.
+`react-docgen-typescript`, `@types/react`, and `typescript` are all **peer dependencies** of this package.
 
 ## Usage
 
