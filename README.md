@@ -38,14 +38,20 @@ npx react-ts-docgen ./src/**/* -o ./out/doclet/files.json
 Any custom options that you want to pass to `react-docgen-typescript` can be done through options:
 
 ```bash
+  React Docgen Typescript Options:
   --config                            Path to your tsconfig.json. By default the
                                       script will look in the current working
                                       directory to find the tsconfig    [string]
   --skip-props-without-doc            Skip props without doc
-                                                       [boolean] [default: true]
+                                                      [boolean] [default: false]
   --skip-props-with-name              Skip the specified list of props without
                                       doc                                [array]
-  --skip-components-with-name         Skip the                           [array]
+  --skip-components-with-name         Skip the components with the specified
+                                      name                               [array]
+  --extract-values-from-union         Convert unions to docgen enum format
+                                                                       [boolean]
+  --remove-undefined-from-optional    If set, types with optional will not
+                                      display "| undefined" in the type[boolean]
   --extract-literal-values-from-enum  Convert enums and unions to docgen enum
                                       format          [boolean] [default: false]
   --save-value-as-string              Save default value props as strings

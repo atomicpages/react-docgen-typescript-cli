@@ -24,6 +24,11 @@ const argv = require('yargs')
             requiresArg: true,
             nargs: 1,
         },
+        quiet: {
+            alias: 'q',
+            describe: 'Suppress all console output except errors',
+            boolean: true,
+        },
         'out-file': {
             alias: 'o',
             describe: 'Concatenate all JSON files into one to the specified file',
@@ -38,6 +43,7 @@ const argv = require('yargs')
         },
         verbose: {
             describe: 'Log everything',
+            boolean: true,
         },
         extension: {
             alias: 'x',
@@ -56,7 +62,7 @@ const argv = require('yargs')
         'skip-props-without-doc': {
             describe: 'Skip props without doc',
             group: 'React Docgen Typescript Options:',
-            default: true,
+            default: false,
             boolean: true,
         },
         'skip-props-with-name': {
@@ -65,9 +71,19 @@ const argv = require('yargs')
             array: 'skipPropsWithName',
         },
         'skip-components-with-name': {
-            describe: 'Skip the ',
+            describe: 'Skip the components with the specified name',
             group: 'React Docgen Typescript Options:',
             array: 'skipComponentsWithName',
+        },
+        'extract-values-from-union': {
+            group: 'React Docgen Typescript Options:',
+            describe: 'Convert unions to docgen enum format',
+            boolean: true,
+        },
+        'remove-undefined-from-optional': {
+            group: 'React Docgen Typescript Options:',
+            describe: 'If set, types with optional will not display "| undefined" in the type',
+            boolean: true,
         },
         'extract-literal-values-from-enum': {
             describe: 'Convert enums and unions to docgen enum format',

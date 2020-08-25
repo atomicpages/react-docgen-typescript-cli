@@ -25,11 +25,13 @@ const createDir = ({ o, d } = {}) => {
 exports.main = (files, argv = {}) => {
     createDir(argv);
 
-    if (argv.verbose) {
-        console.log(chalk.gray(`Processing files:\n${files}`));
-    }
-
     if (argv.skipComponentsWithName) {
+        if (argv.verbose) {
+            console.log(
+                chalk.gray(`Skipping components with name :\n${argv.skipComponentsWithName}`)
+            );
+        }
+
         addExcludedDoclets(argv.skipComponentsWithName);
     }
 
@@ -41,16 +43,27 @@ exports.main = (files, argv = {}) => {
                 skipPropsWithName: argv.skipPropsWithName,
             },
             shouldExtractLiteralValuesFromEnum: argv['extract-literal-values-from-enum'],
+            shouldRemoveUndefinedFromOptional: argv['remove-undefined-from-optional'],
+            shouldExtractValuesFromUnion: argv['extract-values-from-union'],
             savePropValueAsString: argv['save-value-as-string'],
         }
     ).parse;
 
-    const json = parser(files).reduce(
-        (acc, { description, displayName, methods, props }, index) => {
+    const json = files
+        .map(file => ({
+            file,
+            result: parser(file),
+        }))
+        .reduce((acc, res, index) => {
+            const { file } = res;
+            const { description, displayName, methods, props } = res.result[0];
+
+            console.log(chalk.gray(`Processing file: ${file}`));
+
             if (!EXCLUDE_DOCLETS.has(displayName)) {
                 if (argv.verbose) {
                     console.log(
-                        chalk.gray(`Adding component with name ${chalk.underline(displayName)}`)
+                        chalk.gray(`Detected displayName: ${chalk.underline(displayName)}`)
                     );
                 }
 
@@ -74,13 +87,11 @@ exports.main = (files, argv = {}) => {
             }
 
             return acc;
-        },
-        {}
-    );
+        }, {});
 
     if (argv.o) {
         fs.writeFileSync(argv.o, JSON.stringify(json, null, argv.minified ? undefined : 4));
-    } else if ((!argv.o && !argv.d) || argv.verbose) {
+    } else if (!argv.o && !argv.d) {
         console.log(JSON.stringify(json, null, 4));
     }
 };
