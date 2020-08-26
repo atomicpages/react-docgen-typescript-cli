@@ -21,7 +21,7 @@ describe('index tests', () => {
                 config: path.resolve(__dirname, '../../test/tsconfig.json'),
             });
 
-            expect(spy).toHaveBeenCalledTimes(1);
+            expect(spy).toHaveBeenCalledTimes(2);
             // expect(spy).toHaveBeenCalledWith(JSON.stringify(EXPECTED_RESULT, null, 4));
 
             spy.mockRestore();
