@@ -1,17 +1,21 @@
 {
-    "name": "react-ts-docgen",
+    "name": "react-docgen-typescript-cli",
     "version": "1.1.0",
     "description": "A CLI tool",
     "main": "src/index.js",
     "scripts": {
         "test": "jest",
         "pretest:cli": "shx rm -rf test/actual",
-        "test:cli": "node ./bin/react-ts-docgen.js --config test/tsconfig.json test/*.tsx -d test/actual && node test/assert.js",
+        "test:cli": "node ./bin/react-docgen-typescript-cli.js --config test/tsconfig.json test/*.tsx -d test/actual && node test/assert.js",
         "lint": "eslint 'src/**/*' 'bin/**/*'",
         "version": "npm-run-all -p lint test"
     },
-    "bin": "./bin/react-ts-docgen.js",
-    "keywords": [],
+    "bin": "./bin/react-docgen-typescript-cli.js",
+    "keywords": [
+        "react-docgen",
+        "react-docgen-typescript",
+        "cli"
+    ],
     "author": "Dennis Thompson",
     "license": "MIT",
     "devDependencies": {
@@ -37,7 +41,7 @@
         "chalk": "^4.1.0",
         "glob": "^7.1.6",
         "mkdirp": "^1.0.3",
-        "yargs": "^15.1.0"
+        "yargs": "^16.0.0"
     },
     "husky": {
         "hooks": {
@@ -45,7 +49,7 @@
         }
     },
     "engines": {
-        "node": ">=8.2.1"
+        "node": ">=9.0.0"
     },
     "eslintConfig": {
         "env": {

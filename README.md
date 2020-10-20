@@ -1,14 +1,14 @@
-# react-ts-docgen
+# react-docgen-typescript-cli
 
 A tiny CLI wrapper around [react-docgen-typescript](https://github.com/styleguidist/react-docgen-typescript).
 
 ## Installation
 
 ```bash
-npm i react-docgen-typescript @types/react react-ts-docgen typescript --save-dev
+npm i react-docgen-typescript @types/react react-docgen-typescript-cli typescript --save-dev
 
 # yarn
-yarn add react-docgen-typescript @types/react react-ts-docgen typescript --dev
+yarn add react-docgen-typescript @types/react react-docgen-typescript-cli typescript --dev
 ```
 
 `react-docgen-typescript`, `@types/react`, and `typescript` are all **peer dependencies** of this package.
@@ -19,20 +19,20 @@ The main intended usage of this module is via CLI.
 
 ```bash
 # See the help docs
-npx react-ts-docgen --help
+npx react-docgen-typescript-cli --help
 
 # Glob patterns are supported
 # Write each file out to a directory with -d, or --out-dir
-npx react-ts-docgen ./src/**/* -d ./out
+npx react-docgen-typescript-cli ./src/**/* -d ./out
 
 # Filter extensions with -x
-npx react-ts-docgen ./src/**/* -x tsx -d ./out
+npx react-docgen-typescript-cli ./src/**/* -x tsx -d ./out
 
 # Full globbing goodness is supported
-npx react-ts-docgen ./src/**/*.{ts,tsx}
+npx react-docgen-typescript-cli ./src/**/*.{ts,tsx}
 
 # Concat all doclets into a single file
-npx react-ts-docgen ./src/**/* -o ./out/doclet/files.json
+npx react-docgen-typescript-cli ./src/**/* -o ./out/doclet/files.json
 ```
 
 Any custom options that you want to pass to `react-docgen-typescript` can be done through options:
